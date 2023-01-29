@@ -1,16 +1,29 @@
 import React from "react";
-import { Button, View, Text } from "react-native";
+import { VStack, Button } from "native-base";
+import { StyleSheet } from "react-native";
+import SignInForm from "../../Components/SignUpForm";
 
 const Signin = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
+    <VStack>
       <Button
-        title="Go to Signup"
-        onPress={() => navigation.navigate("Signup")}
-      />
-    </View>
+        title="SignUp"
+        onPress={() => {
+          navigation.navigate("Signup");
+        }}
+      >
+        SignUp
+      </Button>
+    </VStack>
   );
 };
+
+const styles = StyleSheet.create({
+  HeadingBox: {
+    size: "lg",
+    fontWeight: "600",
+    color: "coolGray.800",
+  },
+});
 
 export default Signin;

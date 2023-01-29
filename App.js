@@ -1,16 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as NavigationBar from 'expo-navigation-bar';
+import { useEffect } from "react";
 import MainNavigator from "./Navigators/MainNavigator";
-
-const Stack = createNativeStackNavigator();
+import theme from "./Themes/theme";
+import { Platform } from "react-native";
 
 export default function App() {
+  useEffect(() => {
+    if(Platform.OS === 'android') {
+      NavigationBar.setPositionAsync("absolute");
+      NavigationBar.setBackgroundColorAsync("#ffffff00");
+    }
+  },[])
+  
   return (
     <NavigationContainer>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={theme}>
         <MainNavigator></MainNavigator>
       </NativeBaseProvider>
     </NavigationContainer>
