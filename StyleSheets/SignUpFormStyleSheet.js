@@ -41,5 +41,19 @@ export default StyleSheet.create({
     MainHeadingText: {
         color: "black",
         fontSize: 40
+    },
+    LogInButton: {
+        borderRadius: 50,
+        width: '60%'
+    },
+    GoBackButton: {
+        marginTop: 5,
+        marginLeft: 5,
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 100,
     }
 });

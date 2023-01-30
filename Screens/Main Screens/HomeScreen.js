@@ -33,7 +33,7 @@ import { useNavigation } from "@react-navigation/native";
                 size="lg"
                 onPress={() => navigat.navigate("LoginNavigator")}
                 >
-                Go to Signin
+                Log in
                 </Button>
             </Box>
             <Box alignItems="center">
@@ -43,7 +43,7 @@ import { useNavigation } from "@react-navigation/native";
                 size="lg"
                 onPress={() => navigat.navigate("LoginNavigator",{screen:"Signup"})}
                 >
-                Go to Signup
+                Sign Up
                 </Button>
             </Box>
             </Box>

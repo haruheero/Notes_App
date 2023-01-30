@@ -60,7 +60,7 @@ function SignUpForm() {
   
   return (
     <>
-      <VStack style={SignUpFormStyleSheet.VStackStyle} space={5}>
+      <VStack style={SignUpFormStyleSheet.VStackStyle} space={3}>
         <Text style={SignUpFormStyleSheet.HeadingText}>Create account</Text>
         <Text style={SignUpFormStyleSheet.HeadingSubText}>
           SignUp to get all latest notes
