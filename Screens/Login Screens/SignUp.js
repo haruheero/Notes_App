@@ -4,7 +4,6 @@ import {
   Button,
   Text,
   HStack,
-  Heading
 } from "native-base";
 import SignUpForm from "../../Components/SignUpForm";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
