@@ -1,10 +1,11 @@
-import { Box, HStack, VStack, Text, Image } from 'native-base'
+import { Box, HStack, VStack, Text, Image, } from 'native-base'
 import React, { useState } from 'react'
+import { Dimensions } from 'react-native';
 import ProductBoxStyle from '../StyleSheets/ProductBoxStyle';
 import { AntDesign } from "@expo/vector-icons";
 import { Pressable } from 'react-native';
-
-
+import Carousel, { Pagination } from "react-native-snap-carousel";
+import _renderItem from './data';
 //Add animation in like
 
 function ProductBox({textImage}) { 
@@ -13,6 +14,11 @@ function ProductBox({textImage}) {
 
   return (
     <>
+    {/* <Carousel
+    data={_renderItem}
+    sliderWidth={Dimensions.get('window').width + 80}
+    itemWidth={10}
+    /> */}
       <Box rounded="lg" style={ProductBoxStyle.HeadBoxStyle}>
         <HStack>
           <Box style={ProductBoxStyle.ImageBox}>
@@ -24,9 +30,11 @@ function ProductBox({textImage}) {
             </VStack>
           </Box>
           <Pressable onPress={() => setLiked(!liked)}>
-            <AntDesign name={liked ? 'heart' : 'hearto'}
-            size={24}
-            color={liked ? 'red' : 'black'} />
+            <AntDesign
+              name={liked ? "heart" : "hearto"}
+              size={24}
+              color={liked ? "red" : "black"}
+            />
           </Pressable>
         </HStack>
       </Box>

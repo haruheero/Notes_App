@@ -23,7 +23,7 @@ export default StyleSheet.create({
     },
     TextBox: {
         width: "40%",
-        alignItems: 'left',
+        // alignItems: 'left',
     },
     TextStyle: {
         fontSize: 20,
