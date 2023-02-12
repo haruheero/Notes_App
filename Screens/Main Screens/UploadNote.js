@@ -27,7 +27,7 @@ function UploadNote() {
             ]}
             space={5}
           >
-            <HeadingBox message="All Notes" />
+            <HeadingBox message="Upload Notes" />
             <Searchbar />
             <ListItem data={myData} />
             <Box
