@@ -16,7 +16,8 @@ function UploadNote() {
     return (
       <>
         <VStack style={{
-          alignItems: 'center'
+          alignItems: 'center',
+          marginHorizontal: '1%'
         }} space={3}>
           <Text style={SignUpFormStyleSheet.HeadingText}>Upload Notes</Text>
           <ListItem data={myData} />

@@ -3,7 +3,7 @@ import { FlatList, Box, Text, HStack, Image } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet';
 import ListItemStyle from '../StyleSheets/ListItemStyle';
-import image from '../Images/undraw_Add_notes_re_ln36.png'
+import SVGImg from '../Images/undraw_add_notes_re_ln36.svg'
 
 function ListItem({data}) {
   return (
@@ -15,10 +15,15 @@ function ListItem({data}) {
         data={data}
         ListEmptyComponent={() => (
           <>
-          <Image
-          source={image}
-          alt='photo'
-          />
+            <Box style={{
+              width:'100%',
+              alignItems:'center'
+            }}>
+              
+              <SVGImg
+              width='90%'
+              />
+            </Box>
           </>
         )}
         renderItem={({ item }) => (
@@ -26,7 +31,7 @@ function ListItem({data}) {
             <Box style={ListItemStyle.boxSuper}>
               <HStack style={SignUpFormStyleSheet.SignUpHStack}>
                 <Box style={ListItemStyle.boxLeft}>
-                  <AntDesign name="filetext1" size={24} color="black" />
+                  <AntDesign name="filetext1" size={50} color="black" />
                 </Box>
                 <Box style={ListItemStyle.boxRight}>
                   <Text style={SignUpFormStyleSheet.SignUpHStackText}>

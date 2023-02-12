@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
     "expo": "~47.0.12",
+    "expo-document-picker": "~11.0.1",
     "expo-navigation-bar": "~2.0.1",
     "expo-status-bar": "~1.4.2",
     "native-base": "^3.4.25",
@@ -27,11 +28,12 @@
     "react-native-screens": "~3.18.0",
     "react-native-snap-carousel": "^4.0.0-beta.6",
     "react-native-splash-screen": "^3.3.0",
+    "react-native-svg": "13.4.0",
+    "react-native-svg-transformer": "^1.0.0",
     "react-native-swiper": "^1.6.0-rc.3",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.9",
-    "react-password-checklist": "^1.4.3",
-    "expo-document-picker": "~11.0.1"
+    "react-password-checklist": "^1.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

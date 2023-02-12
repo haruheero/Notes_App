@@ -20,5 +20,6 @@ export default StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 10,
+    borderRadius: 10
   },
 });
