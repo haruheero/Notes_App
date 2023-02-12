@@ -8,34 +8,23 @@ import {
   Image,
   ScrollView,
 } from "native-base";
-import { Avatar } from "native-base";
 import SearchBar from "../../Components/Searchbar";
 import ProductBox from "../../Components/ProductBox";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import HomePageStyle from "../../StyleSheets/HomePageStyle";
 import SearchbarStyle from "../../StyleSheets/SearchbarStyle";
-
-//android bug fix (alignItems left invalid value)
+import HeadingBox from "../../Components/HeadingBox";
 
 function HomePage() {
   const date = new Date().getHours();
-  const timeMsg = date < 12 ? "Morning" : date < 18 ? "Afternoon" : "Evening";
+  const timeMsg = date < 12 ? "Good Morning" : date < 18 ? "Good Afternoon" : "Good Evening";
   const image = "https://wallpaperaccess.com/full/317501.jpg";
 
   return (
     <>
       <ScrollView>
         <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
-          <HStack width={'100%'} flexDirection={"row"} justifyContent={"space-between"} alignItems={"center"} >
-            <Box style={HomePageStyle.SubHeadingBox}>
-              <Text style={SignUpFormStyleSheet.HeadingText}>
-                Good {timeMsg} !
-              </Text>
-            </Box>
-            <Box style={HomePageStyle.AvatarBox}>
-              <Avatar></Avatar>
-            </Box>
-          </HStack>
+          <HeadingBox message={timeMsg}/>
           <SearchBar style={SearchbarStyle.SearchBarStyle}></SearchBar>
           <Box style={HomePageStyle.BannerBox} rounded="lg">
             <HStack>

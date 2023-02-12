@@ -5,24 +5,28 @@ import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet';
 import ListItemStyle from '../StyleSheets/ListItemStyle';
 import SVGImg from '../Images/undraw_add_notes_re_ln36.svg'
 
+
+//Add in list if name not null
+//Search file
+
 function ListItem({data}) {
   return (
     <>
       <FlatList
+        nestedScrollEnabled
         style={{
           width: "100%",
         }}
         data={data}
         ListEmptyComponent={() => (
           <>
-            <Box style={{
-              width:'100%',
-              alignItems:'center'
-            }}>
-              
-              <SVGImg
-              width='90%'
-              />
+            <Box
+              style={{
+                width: "100%",
+                alignItems: "center",
+              }}
+            >
+              <SVGImg width="90%" />
             </Box>
           </>
         )}
