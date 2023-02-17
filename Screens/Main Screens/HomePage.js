@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from "native-base";
-import SearchBar from "../../Components/Searchbar";
+import Searchbar from "../../Components/Searchbar";
 import ProductBox from "../../Components/ProductBox";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import HomePageStyle from "../../StyleSheets/HomePageStyle";
@@ -25,7 +25,7 @@ function HomePage() {
       <ScrollView>
         <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
           <HeadingBox message={timeMsg}/>
-          <SearchBar style={SearchbarStyle.SearchBarStyle}></SearchBar>
+          <Searchbar style={SearchbarStyle.SearchBarStyle}></Searchbar>
           <Box style={HomePageStyle.BannerBox} rounded="lg">
             <HStack>
               <Box style={HomePageStyle.BannerImageBox}>

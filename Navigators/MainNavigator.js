@@ -4,6 +4,7 @@ import HomeScreen from "../Screens/Main Screens/HomeScreen";
 import LoginNavigator from "./LoginNavigator";
 import { StatusBar } from "native-base";
 import BottomTabNavigator from "./BottomTabNavigator";
+import DrawerNavigation from "./DrawerNavigation";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,7 @@ function MainNavigator() {
           name="LoginNavigator"
           component={LoginNavigator}
         ></Stack.Screen> */}
-        <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator}/>
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation}/>
       </Stack.Navigator>
     </>
   );

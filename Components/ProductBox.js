@@ -7,6 +7,7 @@ import { Pressable } from 'react-native';
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import _renderItem from './data';
 //Add animation in like
+//Add carousel
 
 function ProductBox({textImage}) { 
     const image = "https://wallpaperaccess.com/full/317501.jpg";
@@ -14,11 +15,6 @@ function ProductBox({textImage}) {
 
   return (
     <>
-    {/* <Carousel
-    data={_renderItem}
-    sliderWidth={Dimensions.get('window').width + 80}
-    itemWidth={10}
-    /> */}
       <Box rounded="lg" style={ProductBoxStyle.HeadBoxStyle}>
         <HStack>
           <Box style={ProductBoxStyle.ImageBox}>

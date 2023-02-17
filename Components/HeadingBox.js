@@ -1,9 +1,10 @@
-import React from 'react';
-import { HStack, Box, Text, Avatar } from 'native-base';
-import HomePageStyle from '../StyleSheets/HomePageStyle';
-import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet';
-
-function HeadingBox({message}) {
+import React from "react";
+import { HStack, Box, Button, Text, Avatar } from "native-base";
+import HomePageStyle from "../StyleSheets/HomePageStyle";
+import SignUpFormStyleSheet from "../StyleSheets/SignUpFormStyleSheet";
+import { useNavigation, DrawerActions } from "@react-navigation/native";
+function HeadingBox({ message }) {
+  const nav=useNavigation();
   return (
     <>
       <HStack
@@ -16,11 +17,17 @@ function HeadingBox({message}) {
           <Text style={SignUpFormStyleSheet.HeadingText}>{message}</Text>
         </Box>
         <Box style={HomePageStyle.AvatarBox}>
-          <Avatar></Avatar>
+          <Button
+            onPress={() => {
+              nav.dispatch(DrawerActions.toggleDrawer());
+            }}
+          >
+            <Avatar></Avatar>
+          </Button>
         </Box>
       </HStack>
     </>
   );
 }
 
-export default HeadingBox
+export default HeadingBox;
