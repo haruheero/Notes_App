@@ -9,8 +9,7 @@ import {
 
 
 function InputField({label}) {
-    const [formData, setData] = useState('')
-
+    const [labelData, setData] = useState([])
   return (
     <>
       <FormControl>
@@ -27,9 +26,14 @@ function InputField({label}) {
           borderBottomColor="#775700"
           variant="underlined"
           name="emailID"
-          onChangeText={(value) => setData({ ...formData, [label.FirstName]: value })}
+          onChangeText={(value) => 
+            {
+              setData(labelData =>({...labelData, [label]:value}))
+            }
+          }
         />
-        {console.log(formData)}
+        
+          {console.log(labelData)}
       </FormControl>
     </>
   );

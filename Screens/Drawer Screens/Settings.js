@@ -1,4 +1,4 @@
-import { VStack, Text, SectionList} from 'native-base'
+import { VStack, Text, SectionList, View} from 'native-base'
 import React from 'react'
 import HeadingBox from '../../Components/HeadingBox'
 import Searchbar from "../../Components/Searchbar";
@@ -10,6 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import * as NavigationBar from 'expo-navigation-bar'
 
 
 //Scroll Adjustment
@@ -78,27 +79,41 @@ function Settings() {
       data: appSettings,
     },
     {
+      title: "a Settings",
+      data: generalSettings,
+    },
+    {
       title: "General Settings",
+      data: generalSettings,
+    },
+    {
+      title: "kiki Settings",
       data: generalSettings,
     },
   ];
   return (
     <>
-        <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
-          <HeadingBox message="Settings" />
-          <Searchbar style={SearchbarStyle.SearchBarStyle}></Searchbar>
-          <SectionList 
-          showsVerticalScrollIndicator={false}
-          sections={data}
-          keyExtractor={(item, index) => (item + index)}
-          renderItem={({item}) => (
-            <SettingsBox label={item.name} icon={item.logo}/>
-          )}
-          renderSectionHeader={({section: {title}}) => (
-            <Text style={HomePageStyle.SubHeading}>{title}</Text>
-          )}
+      <VStack style={[SignUpFormStyleSheet.SignUpVStack, {flex: 1}]} space={5}>
+        <HeadingBox message="Settings" />
+        <Searchbar style={SearchbarStyle.SearchBarStyle}></Searchbar>
+          <SectionList
+            contentContainerStyle={{
+              paddingBottom: 20
+            }}
+            showsVerticalScrollIndicator={false}
+            sections={data}
+            keyExtractor={(item, index) => item + index}
+            ItemSeparatorComponent={()=>(<><View style={{
+              height: 2,
+            }}></View></>)}
+            renderItem={({ item }) => (
+              <SettingsBox label={item.name} icon={item.logo} />
+            )}
+            renderSectionHeader={({ section: { title } }) => (
+              <Text style={HomePageStyle.SubHeading}>{title}</Text>
+            )}
           />
-        </VStack>
+      </VStack>
     </>
   );
 }

@@ -17,41 +17,34 @@ function UploadNote() {
 
     return (
       <>
-        <ScrollView>
           <VStack
             style={[
               SignUpFormStyleSheet.SignUpVStack,
               {
-                margin: "1%",
+                flex: 1,
+                backgroundColor: "pink"
               },
             ]}
-            space={5}
           >
             <HeadingBox message="Upload Notes" />
             <Searchbar />
             <ListItem data={myData} />
-            <Box
-              style={{
-                alignItems: "center",
-              }}
-            >
               <Button
                 onPress={pickdocument}
                 style={{
-                  borderRadius: 100,
+                  borderRadius: 50,
                   backgroundColor: "#ffc529",
-                  shadowColor: "#171717",
-                  shadowOffset: { width: -2, height: 4 },
-                  shadowOpacity: 0.2,
-                  shadowRadius: 3,
                   elevation: 10,
+                  position: "absolute",
+                  height: 50,
+                  width: 50,
+                  alignSelf: 'center',
+                  bottom: 15
                 }}
               >
                 <AntDesign name="plus" size={24} color="black" />
               </Button>
-            </Box>
           </VStack>
-        </ScrollView>
       </>
     );
   };

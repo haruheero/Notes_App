@@ -23,8 +23,8 @@ export default StyleSheet.create({
         color: 'black'
     },
     SignUpVStack: {
-        marginLeft: 30,
-        marginRight: 30,
+        paddingLeft: 30,
+        paddingRight: 30,
         marginTop: 70
     },
     SignUpHStack: {
