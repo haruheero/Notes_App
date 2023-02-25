@@ -7,6 +7,7 @@ import {
   VStack,
   Image,
   ScrollView,
+  FlatList,
 } from "native-base";
 import Searchbar from "../../Components/Searchbar";
 import ProductBox from "../../Components/ProductBox";
@@ -14,89 +15,49 @@ import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import HomePageStyle from "../../StyleSheets/HomePageStyle";
 import SearchbarStyle from "../../StyleSheets/SearchbarStyle";
 import HeadingBox from "../../Components/HeadingBox";
+import BannerBox from "../../Components/BannerBox";
+import { Carousel } from "react-native-snap-carousel";
+import dataFamous from "../../Data/dataFamous";
+import CarouselCardItem from "../../Components/CarouselMain";
+import { useWindowDimensions } from "react-native";
 
 function HomePage() {
+
+    const SLIDER_WIDTH = useWindowDimensions().width;
+    const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.9);
+    const ITEM_HEIGHT = Math.round(SLIDER_WIDTH * 0.9);
+    const isCarousel = React.useRef(null);
+
   const date = new Date().getHours();
   const timeMsg = date < 12 ? "Good Morning" : date < 18 ? "Good Afternoon" : "Good Evening";
-  const image = "https://wallpaperaccess.com/full/317501.jpg";
-
   return (
     <>
       <ScrollView>
         <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
-          <HeadingBox message={timeMsg}/>
+          <HeadingBox message={timeMsg} />
           <Searchbar style={SearchbarStyle.SearchBarStyle}></Searchbar>
-          <Box style={HomePageStyle.BannerBox} rounded="lg">
-            <HStack>
-              <Box style={HomePageStyle.BannerImageBox}>
-                <Image
-                  resizeMode="cover"
-                  borderRadius="lg"
-                  src={image}
-                  alt=""
-                  size="xl"
-                ></Image>
-              </Box>
-              <Box style={HomePageStyle.BannerTextBox}>Image</Box>
-            </HStack>
-          </Box>
-          <HStack>
-            <Box style={HomePageStyle.SubHeadingBox}>
-              <Text style={HomePageStyle.SubHeading}>Favorites</Text>
-            </Box>
-            <Button
-              style={HomePageStyle.ViewAllBox}
-              variant="ghost"
-              _text={{
-                color: "#775700",
-              }}
-            >
-              View all
-            </Button>
-          </HStack>
+          <BannerBox />
+          <Text style={HomePageStyle.SubHeading}>Your favorites</Text>
           <ProductBox
             textImage={{
-              label: "B.Tech",
-              image: "../../Images/notes_front.jpg",
+              label: "Mathematics",
+              image: require("../../Images/Mathematics.png"),
             }}
-          ></ProductBox>
-          <HStack>
-            <Box style={HomePageStyle.SubHeadingBox}>
-              <Text style={HomePageStyle.SubHeading}>Most Liked</Text>
-            </Box>
-            <Button
-              style={HomePageStyle.ViewAllBox}
-              variant="ghost"
-              _text={{
-                color: "#775700",
-              }}
-            >
-              View all
-            </Button>
-          </HStack>
-          <HStack>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <ProductBox
-                textImage={{
-                  label: "12th",
-                  image: "../../Images/notes_front.jpg",
-                }}
-              ></ProductBox>
-              <ProductBox
-                textImage={{
-                  label: "College",
-                  image: "../../Images/notes_front.jpg",
-                }}
-              ></ProductBox>
-              <ProductBox
-                textImage={{
-                  label: "School",
-                  image: "../../Images/notes_front.jpg",
-                }}
-              ></ProductBox>
-            </ScrollView>
-          </HStack>
+          />
+          <Text style={HomePageStyle.SubHeading}>Most famous</Text>
         </VStack>
+
+          <Carousel
+            layout="default"
+            layoutCardOffset={9}
+            ref={isCarousel}
+            data={dataFamous}
+            renderItem={CarouselCardItem}
+            sliderWidth={SLIDER_WIDTH}
+            itemWidth={ITEM_WIDTH}
+            inactiveSlideShift={0}
+            useScrollView={true}
+          />
       </ScrollView>
     </>
   );

@@ -18,6 +18,11 @@ function HeadingBox({ message }) {
         </Box>
         <Box style={HomePageStyle.AvatarBox}>
           <Button
+          style={{
+            borderRadius: 50,
+            height: 30,
+            width: 30,
+          }}
             onPress={() => {
               nav.dispatch(DrawerActions.toggleDrawer());
             }}

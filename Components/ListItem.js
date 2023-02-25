@@ -13,25 +13,8 @@ import SVGImg from '../Images/undraw_add_notes_re_ln36.svg'
 function ListItem({data}) {
   return (
     <>
-      <View style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "blue",
-        flex: 1
-      }}>
+      <View >
         <FlatList
-          contentContainerStyle={{
-            width: "100%",
-            flex: 1,
-            height: 600,
-            backgroundColor: "red",
-          }}
-          // style={{
-          //   width: "100%",
-          //   flex: 1,
-          //   backgroundColor:"red",
-          //   height: 600
-          // }}
           data={data}
           ListEmptyComponent={() => (
             <>

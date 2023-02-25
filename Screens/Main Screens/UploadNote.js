@@ -22,7 +22,6 @@ function UploadNote() {
               SignUpFormStyleSheet.SignUpVStack,
               {
                 flex: 1,
-                backgroundColor: "pink"
               },
             ]}
           >
