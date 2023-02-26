@@ -6,7 +6,7 @@ import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 const Tab = createMaterialBottomTabNavigator();
 
-function BottomTabNavigator() {
+function BottomTabNavigator({naviation}) {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -25,7 +25,7 @@ function BottomTabNavigator() {
         },
       })}
     >
-      <Tab.Screen name="Home" component={HomePage} />
+      <Tab.Screen name="Home" component={HomePage}  />
       <Tab.Screen name="Explore" component={AllNotes} />
       <Tab.Screen name="Upload" component={UploadNote} />
     </Tab.Navigator>
