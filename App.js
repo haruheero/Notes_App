@@ -1,5 +1,4 @@
 import "react-native-gesture-handler";
-import { StyleSheet } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import * as NavigationBar from "expo-navigation-bar";
@@ -7,6 +6,9 @@ import { useEffect } from "react";
 import MainNavigator from "./Navigators/MainNavigator";
 import theme from "./Themes/theme";
 import { Platform } from "react-native";
+
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 
 export default function App() {
   useEffect(() => {
@@ -17,10 +19,12 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <NativeBaseProvider theme={theme}>
-        <MainNavigator></MainNavigator>
-      </NativeBaseProvider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <NativeBaseProvider theme={theme}>
+          <MainNavigator></MainNavigator>
+        </NativeBaseProvider>
+      </NavigationContainer>
+    </Provider>
   );
 }

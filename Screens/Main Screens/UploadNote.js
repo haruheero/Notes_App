@@ -17,33 +17,34 @@ function UploadNote() {
 
     return (
       <>
-          <VStack
-            style={[
-              SignUpFormStyleSheet.SignUpVStack,
-              {
-                flex: 1,
-              },
-            ]}
+        <VStack
+          style={[
+            SignUpFormStyleSheet.SignUpVStack,
+            {
+              flex: 1,
+            },
+          ]}
+          space={5}
+        >
+          <HeadingBox message="Upload Notes" />
+          <Searchbar />
+          <ListItem data={myData} />
+          <Button
+            onPress={pickdocument}
+            style={{
+              borderRadius: 50,
+              backgroundColor: "#ffc529",
+              elevation: 10,
+              position: "absolute",
+              height: 50,
+              width: 50,
+              alignSelf: "center",
+              bottom: 15,
+            }}
           >
-            <HeadingBox message="Upload Notes" />
-            <Searchbar />
-            <ListItem data={myData} />
-              <Button
-                onPress={pickdocument}
-                style={{
-                  borderRadius: 50,
-                  backgroundColor: "#ffc529",
-                  elevation: 10,
-                  position: "absolute",
-                  height: 50,
-                  width: 50,
-                  alignSelf: 'center',
-                  bottom: 15
-                }}
-              >
-                <AntDesign name="plus" size={24} color="black" />
-              </Button>
-          </VStack>
+            <AntDesign name="plus" size={24} color="black" />
+          </Button>
+        </VStack>
       </>
     );
   };

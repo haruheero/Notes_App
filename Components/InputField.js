@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FormControl,
   Input,
 } from "native-base";
 
-//Issues
-//1. Using passed props in useState
+import { addFirstName, addLastName, addInstitute, addBranch } from "../Redux/Actions/ProfilePageActions";
+import { useDispatch } from "react-redux";
 
 
 function InputField({label}) {
-    const [labelData, setData] = useState([])
+    const dispatch = useDispatch()
+
   return (
     <>
       <FormControl>
@@ -26,14 +27,24 @@ function InputField({label}) {
           borderBottomColor="#775700"
           variant="underlined"
           name="emailID"
-          onChangeText={(value) => 
-            {
-              setData(labelData =>({...labelData, [label]:value}))
+          onChangeText={(value) => {
+            switch(label){
+              case "First name": 
+                dispatch(addFirstName(value))
+                break;
+              case "Last name":
+                dispatch(addLastName(value))
+                break;
+              case "Institute":
+                dispatch(addInstitute(value));
+                break;
+              case "Branch":
+                dispatch(addBranch(value))
+                break;
+              default:
             }
-          }
+          }}
         />
-        
-          {console.log(labelData)}
       </FormControl>
     </>
   );
