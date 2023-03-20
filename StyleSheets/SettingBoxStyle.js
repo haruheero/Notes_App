@@ -18,4 +18,9 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
+  hideButton: {
+    borderRadius: 50,
+    height: 30,
+    width: 30,
+  },
 });
