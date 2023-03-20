@@ -63,10 +63,6 @@ function Settings() {
   ];
   const data = [
     {
-      title: "Acccount Settings",
-      data: accountSettings,
-    },
-    {
       title: "Contact Details",
       data: contactDetails,
     },
@@ -79,15 +75,7 @@ function Settings() {
       data: appSettings,
     },
     {
-      title: "a Settings",
-      data: generalSettings,
-    },
-    {
       title: "General Settings",
-      data: generalSettings,
-    },
-    {
-      title: "kiki Settings",
       data: generalSettings,
     },
   ];

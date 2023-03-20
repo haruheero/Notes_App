@@ -1,9 +1,10 @@
 const initialState = {
-    firstName: "",
-    lastName: "",
-    institute: "",
-    branch: ""
-}
+  firstName: "",
+  lastName: "",
+  institute: "",
+  branch: "",
+  photo: '',
+};
 
 
 const ProfilePageReducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const ProfilePageReducer = (state = initialState, action) => {
         return {
           ...state,
           branch: action.payload,
+        };
+      case "ADD PHOTO":
+        return {
+          ...state,
+          photo: action.payload
         };
       default:
         return initialState;
