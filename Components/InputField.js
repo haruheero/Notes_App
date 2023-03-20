@@ -27,6 +27,7 @@ function InputField({label}) {
           borderBottomColor="#775700"
           variant="underlined"
           name="emailID"
+          
           onChangeText={(value) => {
             switch(label){
               case "First name": 

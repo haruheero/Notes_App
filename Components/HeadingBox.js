@@ -3,6 +3,7 @@ import { HStack, Box, Button, Text, Avatar } from "native-base";
 import HomePageStyle from "../StyleSheets/HomePageStyle";
 import SignUpFormStyleSheet from "../StyleSheets/SignUpFormStyleSheet";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
+import SettingBoxStyle from "../StyleSheets/SettingBoxStyle";
 function HeadingBox({ message }) {
   const nav=useNavigation();
   return (
@@ -18,11 +19,7 @@ function HeadingBox({ message }) {
         </Box>
         <Box style={HomePageStyle.AvatarBox}>
           <Button
-          style={{
-            borderRadius: 50,
-            height: 30,
-            width: 30,
-          }}
+          style={SettingBoxStyle.hideButton}
             onPress={() => {
               nav.dispatch(DrawerActions.toggleDrawer());
             }}
