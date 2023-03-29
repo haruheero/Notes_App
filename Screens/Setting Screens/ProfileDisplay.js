@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import SignUpFormStyleSheet from '../../StyleSheets/SignUpFormStyleSheet';
 import HeadingBox from '../../Components/HeadingBox';
 import InfoDisplay from '../../Components/InfoDisplay';
+import { AntDesign } from '@expo/vector-icons';
 
 function ProfileDisplay() {
 
@@ -19,6 +20,14 @@ function ProfileDisplay() {
 
   return (
     <>
+      <Button
+        variant="ghost"
+        leftIcon={<AntDesign name="leftcircleo" size={24} color="black" />}
+        style={SignUpFormStyleSheet.GoBackButton}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      ></Button>
       <ScrollView>
         <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
           <HeadingBox message="Profile" />
@@ -36,14 +45,18 @@ function ProfileDisplay() {
               }
             />
           </Box>
-          {Object.entries(inputValues).map(([key, value]) => (
-            key!=='photo' ? <InfoDisplay
-              info={{
-                label: key,
-                text: value,
-              }}
-            /> : ''
-          ))}
+          {Object.entries(inputValues).map(([key, value]) =>
+            key !== "photo" ? (
+              <InfoDisplay
+                info={{
+                  label: key,
+                  text: value,
+                }}
+              />
+            ) : (
+              ""
+            )
+          )}
         </VStack>
       </ScrollView>
     </>

@@ -5,6 +5,7 @@ import ProfileDisplay from '../Screens/Setting Screens/ProfileDisplay'
 import EmailSetting from '../Screens/Setting Screens/EmailSetting'
 import PhoneNumber from '../Screens/Setting Screens/PhoneNumber'
 import PasswordReset from '../Screens/Setting Screens/PasswordReset'
+import Notifications from '../Screens/Setting Screens/Notifications'
 
 function SettingsNavigator() {
 
@@ -17,6 +18,7 @@ function SettingsNavigator() {
       <Stack.Screen name="EmailSetting" component={EmailSetting} />
       <Stack.Screen name="PhoneNumber" component={PhoneNumber} />
       <Stack.Screen name="PasswordReset" component={PasswordReset} />
+      <Stack.Screen name="Notifications" component={Notifications} />
     </Stack.Navigator>
   );
 }

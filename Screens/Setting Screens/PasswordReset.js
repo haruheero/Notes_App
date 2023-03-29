@@ -1,14 +1,13 @@
-import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { Button, FormControl, Icon, Input, VStack } from 'native-base';
 import React, { useState } from 'react'
 import { Pressable } from 'react-native';
 import HeadingBox from '../../Components/HeadingBox';
 import SignUpFormStyleSheet from '../../StyleSheets/SignUpFormStyleSheet';
 
-function PasswordReset() {
-
-    const [show, setShow] = useState(false);
-    const [password, setPassword] = useState('')
+function PasswordReset({ navigation }) {
+  const [show, setShow] = useState(false);
+  const [password, setPassword] = useState("");
 
   const onSubmit = () => {
     console.log(password);
@@ -16,6 +15,14 @@ function PasswordReset() {
 
   return (
     <>
+      <Button
+        variant="ghost"
+        leftIcon={<AntDesign name="leftcircleo" size={24} color="black" />}
+        style={SignUpFormStyleSheet.GoBackButton}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      ></Button>
       <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
         <HeadingBox message=" Edit Password" />
         <FormControl>

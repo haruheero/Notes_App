@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, HStack, Button, Text } from "native-base";
 import SettingBoxStyle from "../StyleSheets/SettingBoxStyle";
-import SignUpFormStyleSheet from "../StyleSheets/SignUpFormStyleSheet";
 import ProductBoxStyle from "../StyleSheets/ProductBoxStyle";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import matchLabel from "../Data/dataMatchLabelRedirect";
+
 
 const SettingsBox = ({label, icon}) => {
 
@@ -38,7 +39,7 @@ const SettingsBox = ({label, icon}) => {
             </Box>
 
             <Button style={SettingBoxStyle.buttonBox}
-            onPress={() => navigation.navigate("PasswordReset")}
+            onPress={() => navigation.navigate(matchLabel.get(label))}
             >
               <AntDesign name="rightcircleo" size={24} color="black" />
             </Button>

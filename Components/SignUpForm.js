@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, FormControl, Input, VStack, Text, Icon, Pressable } from 'native-base'
 import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet'
 import { MaterialIcons } from "@expo/vector-icons";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebaseConfig';
+
 
 function SignUpForm() {
+
+  // useEffect(() => {
+    const auth = getAuth(app);
+  // }, [])
+  
 
   const [formData, setData] = useState({
     name: '',
@@ -14,22 +22,14 @@ function SignUpForm() {
   const [show, setShow] = useState(false);
 
   const onSubmit = async () => {
-    const validEmail = await validationEmail();
-
-    const validPassword = await validationPassword();
-
-    if(validEmail && validPassword) console.log('Thankyou for registering', formData)
-    else console.log('Validation failed', errors, formData)
+    createUserWithEmailAndPassword(auth, formData.emailID, formData.password)
+      .then((userCredential) => {
+        console.log(userCredential.user)
+      })
+      .catch((error) => {
+        console.log(error.code, error.message)
+      });
   }
-
-  //validate email address
-
-  //Rules:
-  // 1. Uppercase (A-Z) and lowercase (a-z) English letters.
-  // 2. Digits (0-9).
-  // 3. Characters ! # $ % & ' * + - / = ? ^ _ ` { | } ~
-  // 4. Character . ( period, dot or fullstop) provided that it is not the first or last character and it will not come one after the other.
-
   const validationEmail = async () => {
     let reg =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
