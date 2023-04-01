@@ -8,12 +8,17 @@ import {
 } from "native-base";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { passwordReset } from "../../Redux/Actions/SignUpLoginAction";
 
 const ForgotPassword = ({ navigation }) => {
 
   const [ ForgotPasswordEmail, setForgotPasswordEmail ] = useState({})
 
+  const dispatch = useDispatch()
+
   const onSubmit = () => {
+    dispatch(passwordReset(ForgotPasswordEmail))
     console.log('Submitted', ForgotPasswordEmail)
   }
 

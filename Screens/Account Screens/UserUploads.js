@@ -1,19 +1,25 @@
 import React from "react";
-import { Text, VStack } from "native-base";
+import { Button, Text, VStack } from "native-base";
 import ListItem from "../../Components/ListItem";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import data from "../../Data/dataUpload";
 import Searchbar from "../../Components/Searchbar";
 import HeadingBox from "../../Components/HeadingBox";
+import { AntDesign } from "@expo/vector-icons";
 
-//Search file function
-
-function AllNotes() {
-
+function UserUploads({ navigation }) {
   return (
     <>
+      <Button
+        variant="ghost"
+        leftIcon={<AntDesign name="leftcircleo" size={24} color="black" />}
+        style={SignUpFormStyleSheet.GoBackButton}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      ></Button>
       <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
-        <HeadingBox message="All Notes" />
+        <HeadingBox message="My Uploads" />
         <Searchbar />
         <ListItem data={data} />
       </VStack>
@@ -21,4 +27,4 @@ function AllNotes() {
   );
 }
 
-export default AllNotes;
+export default UserUploads;
