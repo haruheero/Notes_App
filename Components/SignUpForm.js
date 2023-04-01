@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, FormControl, Input, VStack, Text, Icon, Pressable } from 'native-base'
 import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet'
 import { MaterialIcons } from "@expo/vector-icons";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebaseConfig';
+import { useDispatch } from 'react-redux';
+import { authenticationSignup } from '../Redux/Actions/SignUpLoginAction';
+
 
 function SignUpForm() {
 
@@ -10,53 +15,16 @@ function SignUpForm() {
     emailID: '',
     password: '',
   })
-  const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
 
+// const auth = getAuth(app);
+
+
+  const dispatch = useDispatch()
+
   const onSubmit = async () => {
-    const validEmail = await validationEmail();
-
-    const validPassword = await validationPassword();
-
-    if(validEmail && validPassword) console.log('Thankyou for registering', formData)
-    else console.log('Validation failed', errors, formData)
+    dispatch(authenticationSignup(formData))
   }
-
-  //validate email address
-
-  //Rules:
-  // 1. Uppercase (A-Z) and lowercase (a-z) English letters.
-  // 2. Digits (0-9).
-  // 3. Characters ! # $ % & ' * + - / = ? ^ _ ` { | } ~
-  // 4. Character . ( period, dot or fullstop) provided that it is not the first or last character and it will not come one after the other.
-
-  const validationEmail = async () => {
-    let reg =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if(reg.test(formData.emailID)) {
-      return true;
-    }
-    else {
-      setErrors({ ...errors, emailID: "Invalid email" });
-      return false;
-    }
-  }
-  //validate password
-
-  //Rules:
-  // 1. Password atleast 8 characters long
-  // 2. A combination of uppercase, lowercase, numbers and special characters
-
-  const validationPassword = async () => {
-    let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$/;
-    if(reg.test(formData.password)) {
-      return true;
-    }
-    else {
-      setErrors({ ...errors, password: "Invalid password" });
-      return false;
-    }
-  } 
   
   return (
     <>
