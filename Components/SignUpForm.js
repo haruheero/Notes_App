@@ -4,59 +4,27 @@ import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet'
 import { MaterialIcons } from "@expo/vector-icons";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import app from '../firebaseConfig';
+import { useDispatch } from 'react-redux';
+import { authenticationSignup } from '../Redux/Actions/SignUpLoginAction';
 
 
 function SignUpForm() {
-
-  // useEffect(() => {
-    const auth = getAuth(app);
-  // }, [])
-  
 
   const [formData, setData] = useState({
     name: '',
     emailID: '',
     password: '',
   })
-  const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
 
+// const auth = getAuth(app);
+
+
+  const dispatch = useDispatch()
+
   const onSubmit = async () => {
-    createUserWithEmailAndPassword(auth, formData.emailID, formData.password)
-      .then((userCredential) => {
-        console.log(userCredential.user)
-      })
-      .catch((error) => {
-        console.log(error.code, error.message)
-      });
+    dispatch(authenticationSignup(formData))
   }
-  const validationEmail = async () => {
-    let reg =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if(reg.test(formData.emailID)) {
-      return true;
-    }
-    else {
-      setErrors({ ...errors, emailID: "Invalid email" });
-      return false;
-    }
-  }
-  //validate password
-
-  //Rules:
-  // 1. Password atleast 8 characters long
-  // 2. A combination of uppercase, lowercase, numbers and special characters
-
-  const validationPassword = async () => {
-    let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$/;
-    if(reg.test(formData.password)) {
-      return true;
-    }
-    else {
-      setErrors({ ...errors, password: "Invalid password" });
-      return false;
-    }
-  } 
   
   return (
     <>

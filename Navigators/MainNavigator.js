@@ -18,7 +18,7 @@ function MainNavigator() {
           name="LoginNavigator"
           component={LoginNavigator}
         ></Stack.Screen>
-        {/* <Stack.Screen name="DrawerNavigation" component={DrawerNavigation}/> */}
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation}/>
       </Stack.Navigator>
     </>
   );
