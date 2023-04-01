@@ -11,3 +11,10 @@ export const authenticationLogin = (data) => {
         payload: data
     }
 }
+
+export const passwordReset = (data) => {
+    return {
+        type: "PASSWORD_RESET",
+        payload: data
+    }
+}
