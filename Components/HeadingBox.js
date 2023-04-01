@@ -3,8 +3,13 @@ import { HStack, Box, Button, Text, Avatar } from "native-base";
 import HomePageStyle from "../StyleSheets/HomePageStyle";
 import SignUpFormStyleSheet from "../StyleSheets/SignUpFormStyleSheet";
 import { useNavigation, DrawerActions } from "@react-navigation/native";
+import SettingBoxStyle from "../StyleSheets/SettingBoxStyle";
+import { useSelector } from "react-redux";
 function HeadingBox({ message }) {
+
   const nav=useNavigation();
+  const avatarPhoto = useSelector(state=>state.photo)
+
   return (
     <>
       <HStack
@@ -18,16 +23,18 @@ function HeadingBox({ message }) {
         </Box>
         <Box style={HomePageStyle.AvatarBox}>
           <Button
-          style={{
-            borderRadius: 50,
-            height: 30,
-            width: 30,
-          }}
+            style={SettingBoxStyle.hideButton}
             onPress={() => {
               nav.dispatch(DrawerActions.toggleDrawer());
             }}
           >
-            <Avatar></Avatar>
+            <Avatar
+              source={
+                avatarPhoto
+                  ? { uri: avatarPhoto }
+                  : require("../Images/Default_Profle_picture.png")
+              }
+            />
           </Button>
         </Box>
       </HStack>

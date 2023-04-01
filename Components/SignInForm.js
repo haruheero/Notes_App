@@ -12,6 +12,8 @@ import {
 import SignUpFormStyleSheet from "../StyleSheets/SignUpFormStyleSheet";
 import { MaterialIcons, FontAwesome5, AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { authenticationLogin } from "../Redux/Actions/SignUpLoginAction";
 
 const SignInForm = () => {
   const [formData, setData] = useState({
@@ -23,8 +25,10 @@ const SignInForm = () => {
   const [show, setShow] = useState(false);
   const navigation = useNavigation()
 
+  const dispatch = useDispatch()
+
   const onSubmit = async () => {
-    console.log("Submitted", formData)
+    dispatch(authenticationLogin(formData))
   };
 
   return (

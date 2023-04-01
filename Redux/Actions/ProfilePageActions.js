@@ -23,5 +23,12 @@ export const addBranch = (data) => {
   return {
     type: "ADD BRANCH",
     payload: data
-  };
+  }
+}
+
+export const addPhoto = (data) => {
+    return {
+      type: "ADD PHOTO",
+      payload: data,
+    };
 };

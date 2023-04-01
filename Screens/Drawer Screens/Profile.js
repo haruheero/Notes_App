@@ -1,10 +1,15 @@
 import React from 'react'
-import { VStack, Avatar, Box, ScrollView, Button } from "native-base";
+import { VStack, Avatar, Box, ScrollView, Button, KeyboardAvoidingView } from "native-base";
 import HeadingBox from "../../Components/HeadingBox";
 import SignUpFormStyleSheet from "../../StyleSheets/SignUpFormStyleSheet";
 import InputField from '../../Components/InputField';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import * as DocumentPicker from 'expo-document-picker'
+import SettingBoxStyle from '../../StyleSheets/SettingBoxStyle';
+import { addPhoto } from '../../Redux/Actions/ProfilePageActions';
+
 
 
 //Issues
@@ -12,9 +17,12 @@ import { useSelector } from 'react-redux';
 // 2. On submit redirect to Saved info page
 // 3. This page visible only when edit button is clicked
 // 4. Remove the side bar when on this page
-
+// 5. Add redux to reflect changes across page
+// 6. Add whatsapp transition
 
 function Profile() {
+
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState('')
   const inputValues = {
@@ -28,26 +36,43 @@ function Profile() {
     console.log(inputValues)
   }
 
+  const [photo, setPhoto] = useState()
+  const onView = async () => {
+    let uploadPhoto = await DocumentPicker.getDocumentAsync({})
+    setPhoto(uploadPhoto.uri)
+    dispatch(addPhoto(uploadPhoto.uri))
+  }
+
   return (
     <>
-      <ScrollView>
+      <KeyboardAwareScrollView
+        extraScrollHeight={100}
+        enableOnAndroid={true}
+        extraHeight={80} 
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
         <VStack style={SignUpFormStyleSheet.SignUpVStack} space={5}>
-          <HeadingBox message="Profile" />
+          <HeadingBox message=" Edit Profile" />
           <Box
             style={{
               alignItems: "center",
             }}
           >
-            <Avatar size="xl" />
+            <Button style={SettingBoxStyle.hideButton} onPress={onView}>
+              <Avatar size="xl" source={photo ? { uri: photo }: require('../../Images/Default_Profle_picture.png')} />
+            </Button>
           </Box>
           <InputField label="First name" />
           <InputField label="Last name" />
           <InputField label="Institute" />
           <InputField label="Branch" />
           <Button
-            style={[SignUpFormStyleSheet.CreateAccButton, {
-              alignSelf: "center"
-            }]}
+            style={[
+              SignUpFormStyleSheet.CreateAccButton,
+              {
+                alignSelf: "center",
+              },
+            ]}
             onPress={onSubmit}
             _text={{
               color: "black",
@@ -57,7 +82,7 @@ function Profile() {
             Save
           </Button>
         </VStack>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </>
   );
 }

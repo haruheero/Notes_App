@@ -1,4 +1,4 @@
-import { VStack, Text, SectionList, View} from 'native-base'
+import { VStack, Text, SectionList, View, Button} from 'native-base'
 import React from 'react'
 import HeadingBox from '../../Components/HeadingBox'
 import Searchbar from "../../Components/Searchbar";
@@ -16,17 +16,17 @@ import * as NavigationBar from 'expo-navigation-bar'
 //Scroll Adjustment
 
 
-function Settings() {
+function Settings({ navigation }) {
   const accountSettings = [
     {
       name: "Profile",
-      logo: 
+      logo: (
         <MaterialCommunityIcons
           name="account-circle-outline"
           size={24}
           color="black"
         />
-      ,
+      ),
     },
     {
       name: "Account Information",
@@ -63,10 +63,6 @@ function Settings() {
   ];
   const data = [
     {
-      title: "Acccount Settings",
-      data: accountSettings,
-    },
-    {
       title: "Contact Details",
       data: contactDetails,
     },
@@ -79,40 +75,49 @@ function Settings() {
       data: appSettings,
     },
     {
-      title: "a Settings",
-      data: generalSettings,
-    },
-    {
       title: "General Settings",
-      data: generalSettings,
-    },
-    {
-      title: "kiki Settings",
       data: generalSettings,
     },
   ];
   return (
     <>
-      <VStack style={[SignUpFormStyleSheet.SignUpVStack, {flex: 1}]} space={5}>
+      <Button
+        variant="ghost"
+        leftIcon={<AntDesign name="leftcircleo" size={24} color="black" />}
+        style={SignUpFormStyleSheet.GoBackButton}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      ></Button>
+      <VStack
+        style={[SignUpFormStyleSheet.SignUpVStack, { flex: 1 }]}
+        space={5}
+      >
         <HeadingBox message="Settings" />
         <Searchbar style={SearchbarStyle.SearchBarStyle}></Searchbar>
-          <SectionList
-            contentContainerStyle={{
-              paddingBottom: 20
-            }}
-            showsVerticalScrollIndicator={false}
-            sections={data}
-            keyExtractor={(item, index) => item + index}
-            ItemSeparatorComponent={()=>(<><View style={{
-              height: 2,
-            }}></View></>)}
-            renderItem={({ item }) => (
-              <SettingsBox label={item.name} icon={item.logo} />
-            )}
-            renderSectionHeader={({ section: { title } }) => (
-              <Text style={HomePageStyle.SubHeading}>{title}</Text>
-            )}
-          />
+        <SectionList
+          contentContainerStyle={{
+            paddingBottom: 20,
+          }}
+          showsVerticalScrollIndicator={false}
+          sections={data}
+          keyExtractor={(item, index) => item + index}
+          ItemSeparatorComponent={() => (
+            <>
+              <View
+                style={{
+                  height: 2,
+                }}
+              ></View>
+            </>
+          )}
+          renderItem={({ item }) => (
+            <SettingsBox label={item.name} icon={item.logo} />
+          )}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={HomePageStyle.SubHeading}>{title}</Text>
+          )}
+        />
       </VStack>
     </>
   );
