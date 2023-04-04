@@ -8,6 +8,8 @@ import Searchbar from "../../Components/Searchbar";
 import HeadingBox from "../../Components/HeadingBox";
 import { useDispatch } from 'react-redux'
 import { uploadNotes } from '../../Redux/Actions/UploadNotesAction'
+  import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
 
 function UploadNote() {
 
