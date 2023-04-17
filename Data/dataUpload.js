@@ -1,22 +1,14 @@
-const data = [
-  {
-    name: "item1",
-  },
-  {
-    name: "item2",
-  },
-  {
-    name: "item3",
-  },
-  {
-    name: "item4",
-  },
-  {
-    name: "item5",
-  },
-  {
-    name: "item6",
-  },
-];
+//Extra page
 
-export default data
+import { useDispatch, useSelector } from 'react-redux';
+import { passAllNotes } from '../Redux/Actions/AllNotesAction';
+
+let data = []
+
+function DataUpload() {
+
+  const dispatch = useDispatch()
+  {() => {dispatch(passAllNotes(dataArray.AllNotesReducer))}}
+}
+
+export default DataUpload
