@@ -6,6 +6,7 @@ import Connections from "../Screens/Drawer Screens/Profile";
 import BottomTabNavigator from './BottomTabNavigator';
 import SettingsNavigator from './SettingsNavigator';
 import AccountsNavigator from './AccountsNavigator';
+import LogoutModal from '../Screens/Drawer Screens/LogoutModal';
 
 const Drawer = createDrawerNavigator();
 
@@ -26,6 +27,7 @@ function DrawerNavigation() {
       <Drawer.Screen name="My Account" component={AccountsNavigator} />
       <Drawer.Screen name="Help" component={Help} />
       <Drawer.Screen name="Connections" component={Connections} />
+      <Drawer.Screen name='Log out' component={LogoutModal} />
     </Drawer.Navigator>
   );
 }
