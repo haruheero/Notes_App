@@ -12,7 +12,6 @@ import DataUpload from '../Data/dataUpload';
 
 function ListItem({data}) {
 
-  console.log(data, 'h')
 
   return (
     <>
