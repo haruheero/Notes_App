@@ -13,12 +13,10 @@ import { addPhoto } from '../../Redux/Actions/ProfilePageActions';
 
 
 //Issues
-// 1. Set photo
-// 2. On submit redirect to Saved info page
-// 3. This page visible only when edit button is clicked
-// 4. Remove the side bar when on this page
-// 5. Add redux to reflect changes across page
-// 6. Add whatsapp transition
+// 1. On submit redirect to Saved info page
+// 2. This page visible only when edit button is clicked
+// 3. Remove the side bar when on this page
+// 4. Add whatsapp transition
 
 function Profile() {
 
@@ -26,11 +24,11 @@ function Profile() {
 
   const [formData, setFormData] = useState('')
   const inputValues = {
-    firstName: useSelector(state => state.firstName),
-    lastName: useSelector(state => state.lastName),
-    institute: useSelector(state => state.institute),
-    branch: useSelector(state => state.branch)
-  }
+    firstName: useSelector((state) => state.ProfilePageReducer.firstName),
+    lastName: useSelector((state) => state.ProfilePageReducer.lastName),
+    institute: useSelector((state) => state.ProfilePageReducer.institute),
+    branch: useSelector((state) => state.ProfilePageReducer.branch),
+  };
 
   const onSubmit = () => {
     console.log(inputValues)

@@ -8,6 +8,7 @@ const initialState = {
 
 
 const ProfilePageReducer = (state = initialState, action) => {
+
     switch (action.type) {
       case "ADD FIRST NAME":
         return {

@@ -6,19 +6,20 @@ import Searchbar from "../../Components/Searchbar";
 import HeadingBox from "../../Components/HeadingBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listAllNotes } from "../../Redux/Actions/AllNotesAction";
-//Search file function
+
+//Issues
+//1. Search file function
 
 
 function AllNotes() {
 
+  //called only once using useEffect
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(listAllNotes()); 
   }, [])
 
   const data = useSelector((state) => state);
-
-  console.log('dada  \n',data.AllNotesReducer)
 
   return (
     <>
