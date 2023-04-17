@@ -26,7 +26,11 @@ function BottomTabNavigator({naviation}) {
       })}
     >
       <Tab.Screen name="Home" component={HomePage}  />
-      <Tab.Screen name="Explore" component={AllNotes} />
+      <Tab.Screen name="Explore" component={AllNotes} 
+      options={{
+        unmountOnBlur: true
+      }}
+      />
       <Tab.Screen name="Upload" component={UploadNote} />
     </Tab.Navigator>
   );

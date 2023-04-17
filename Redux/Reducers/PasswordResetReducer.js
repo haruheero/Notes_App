@@ -7,7 +7,6 @@ const initialState = {
 const auth = getAuth();
 
 const PasswordReset = (state = initialState, action) => {
-    console.log('here', action.payload)
   switch (action.type) {
     case "PASSWORD_RESET":
         authenticate = action.payload
@@ -19,7 +18,6 @@ const PasswordReset = (state = initialState, action) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
-            // ..
         });
     default: return initialState
   }

@@ -6,13 +6,27 @@ import SignUpFormStyleSheet from '../../StyleSheets/SignUpFormStyleSheet'
 import { AntDesign } from "@expo/vector-icons";
 import Searchbar from "../../Components/Searchbar";
 import HeadingBox from "../../Components/HeadingBox";
+import { useDispatch } from 'react-redux'
+import { uploadNotes } from '../../Redux/Actions/UploadNotesAction'
+  import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
 
 function UploadNote() {
+
+  const dispatch = useDispatch()
 
     const [myData, setMyData] = useState([])
     const pickdocument = async () => {
       let result = await DocumentPicker.getDocumentAsync({});
-      setMyData([...myData, result])
+      if (result != null && result.type !== 'cancel') {
+        setMyData([...myData, result]);
+        const r = await fetch(result.uri);
+        const b = await r.blob();
+        dispatch(uploadNotes({
+          fileName: result.name,
+          blobFile: b
+        }));
+      }
     };
 
     return (

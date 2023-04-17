@@ -7,8 +7,8 @@ import SettingBoxStyle from "../StyleSheets/SettingBoxStyle";
 import { useSelector } from "react-redux";
 function HeadingBox({ message }) {
 
-  const nav=useNavigation();
-  const avatarPhoto = useSelector(state=>state.photo)
+  const nav = useNavigation();
+  const avatarPhoto = useSelector(state=>state.ProfilePageReducer.photo)
 
   return (
     <>

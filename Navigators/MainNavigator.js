@@ -13,11 +13,11 @@ function MainNavigator() {
     <>
       <StatusBar hidden></StatusBar>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen
           name="LoginNavigator"
           component={LoginNavigator}
-        ></Stack.Screen>
+        ></Stack.Screen> */}
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation}/>
       </Stack.Navigator>
     </>
