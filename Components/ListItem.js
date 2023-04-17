@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList } from 'react-native';
-import {  Box, Text, HStack, Image, View } from "native-base";
+import {  Box, Text, HStack, Image, View, Pressable } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import SignUpFormStyleSheet from '../StyleSheets/SignUpFormStyleSheet';
 import ListItemStyle from '../StyleSheets/ListItemStyle';
 import SVGImg from '../Images/undraw_add_notes_re_ln36.svg'
-
+import DataUpload from '../Data/dataUpload';
 
 //Add in list if name not null
 //Search file
 
 function ListItem({data}) {
+
+  console.log(data, 'h')
+
   return (
     <>
-      <View >
+      <View>
         <FlatList
           data={data}
           ListEmptyComponent={() => (
