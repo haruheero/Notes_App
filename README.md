@@ -1,4 +1,4 @@
-# Notes_App
+# Notezy
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2ecac9a183cc4e6c8277b8b7512b51f5)](https://app.codacy.com/gh/haruheero/Notes_App/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
