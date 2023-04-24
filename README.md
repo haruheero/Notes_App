@@ -5,7 +5,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/react-18.1.0-green.svg" />
   <img src="https://img.shields.io/badge/react--native--expo-47.0.12-blue.svg" />
-  <img src="https://img.shields.io/badge/license-MIT-red" />
 </p>
 
 ## Overview
