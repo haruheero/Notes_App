@@ -36,6 +36,7 @@ Notezy's biggest challenges include state management using Redux, Firebase stora
 • Assignments: In future versions of Notezy, users will be able to add and store assignments and class notes.</br>
 • Collaboration: Notezy will support shared group studying and teaching, allowing users to collaborate and share notes with each other.
 </h4>
+
 ## Want to try(Installation)
 
 Clone this repo(or download code zip file)
