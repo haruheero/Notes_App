@@ -63,6 +63,7 @@ $ expo start
 
 ![First Stage functions](https://user-images.githubusercontent.com/63349641/230676709-3da81ee2-9db7-4428-ba41-39586c7803a5.png)
 
+*Upload & download filter connection example schema*
 ![Upload & download filter connection example schema](https://user-images.githubusercontent.com/63349641/234067417-288262e4-abce-4df5-a704-96f38c68aa3d.png)
 
 *Screens schema*
