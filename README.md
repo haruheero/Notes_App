@@ -5,6 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/react-18.1.0-green.svg" />
   <img src="https://img.shields.io/badge/react--native--expo-47.0.12-blue.svg" />
+  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2ecac9a183cc4e6c8277b8b7512b51f5)](https://app.codacy.com/gh/haruheero/Notes_App/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 </p>
 
 ## Overview
@@ -60,6 +61,8 @@ $ expo start
 *First Stage functions diagram*
 
 ![First Stage functions](https://user-images.githubusercontent.com/63349641/230676709-3da81ee2-9db7-4428-ba41-39586c7803a5.png)
+
+![Upload & download filter connection example schema](https://user-images.githubusercontent.com/63349641/234067417-288262e4-abce-4df5-a704-96f38c68aa3d.png)
 
 *Screens schema*
 ![Screens schema](https://user-images.githubusercontent.com/63349641/230674929-c38425f2-5ff2-4a07-9937-3dfd61c517bd.jpg)
